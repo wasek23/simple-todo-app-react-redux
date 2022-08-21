@@ -1,25 +1,25 @@
-import logo from './logo.svg';
+import { Provider } from 'react-redux';
+
 import './App.css';
+import store from './redux/store';
+import Navbar from './components/Navbar/Navbar';
+import Header from './components/Todo/Header';
+import TodoList from './components/Todo/TodoList';
+import Footer from './components/Todo/Footer';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => <Provider store={store}>
+	<div className='grid place-items-center bg-blue-100 h-screen px-6 font-sans'>
+		<Navbar />
 
+		<div className='w-full max-w-3xl shadow-lg rounded-lg p-6 bg-white'>
+			<Header />
+			<hr className='mt-4' />
+
+			<TodoList />
+			<hr className='mt-4' />
+
+			<Footer />
+		</div>
+	</div>
+</Provider>
 export default App;
